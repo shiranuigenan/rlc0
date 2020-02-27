@@ -17,8 +17,12 @@ namespace test
                 BackgroundColor = Color.FromArgb(51, 63, 85),
                 //BackgroundImage = backgroundImage,
                 ProductImage = washingBoots,
+                ProductImagePos = new Point(79, 54),
                 Title = "Washing Boots",
-                Price = "123.45 TL"
+                TitleRect = new Rectangle(5, 5, 290, 75),
+                Price = "123.45 TL",
+                PriceRect = new Rectangle(5, 170, 290, 75),
+
             };
             productBanner.SimpleRender();
             productBanner.SavePng("product-banner.png");
