@@ -15,9 +15,12 @@ namespace imageGenerate
         public Point ProductImagePos { get; set; }
         public string Title { get; set; } = "Title";
         public Rectangle TitleRect { get; set; }
+        public StringAlignment TitleVerticalAlignment { get; set; } = StringAlignment.Center;
+        public StringAlignment TitleHorizontalAlignment { get; set; } = StringAlignment.Center;
         public string Price { get; set; } = "Price";
         public Rectangle PriceRect { get; set; }
-
+        public StringAlignment PriceVerticalAlignment { get; set; } = StringAlignment.Center;
+        public StringAlignment PriceHorizontalAlignment { get; set; } = StringAlignment.Center;
         public Bitmap LastRendered { get; set; }
 
         public void SimpleRender()
@@ -39,13 +42,18 @@ namespace imageGenerate
                 {
                     using (var stringFormat = new StringFormat())
                     {
-                        stringFormat.LineAlignment = StringAlignment.Center;
-                        stringFormat.Alignment = StringAlignment.Center;
+                        stringFormat.LineAlignment = TitleVerticalAlignment;
+                        stringFormat.Alignment = TitleHorizontalAlignment;
 
-                        //g.DrawRectangle(new Pen(Color.Red, 1), TitleRect);
+                        // g.DrawRectangle(new Pen(Color.Red, 1), TitleRect);
                         g.DrawString(Title, font, Brushes.White, TitleRect, stringFormat);
+                    }
+                    using (var stringFormat = new StringFormat())
+                    {
+                        stringFormat.LineAlignment = PriceVerticalAlignment;
+                        stringFormat.Alignment = PriceHorizontalAlignment;
 
-                        //g.DrawRectangle(new Pen(Color.Red, 1), PriceRect);
+                        // g.DrawRectangle(new Pen(Color.Red, 1), PriceRect);
                         g.DrawString(Price, font, Brushes.White, PriceRect, stringFormat);
                     }
                 }

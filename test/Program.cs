@@ -20,13 +20,16 @@ namespace test
                 ProductImagePos = new Point(79, 54),
                 Title = "Washing Boots",
                 TitleRect = new Rectangle(5, 5, 290, 75),
+                TitleVerticalAlignment = StringAlignment.Center,
+                TitleHorizontalAlignment = StringAlignment.Far,
                 Price = "123.45 TL",
                 PriceRect = new Rectangle(5, 170, 290, 75),
+                PriceHorizontalAlignment = StringAlignment.Near,
+                PriceVerticalAlignment = StringAlignment.Center
 
             };
             productBanner.SimpleRender();
             productBanner.SavePng("product-banner.png");
-            productBanner.SaveJpg("product-banner.jpg");
         }
     }
 }
