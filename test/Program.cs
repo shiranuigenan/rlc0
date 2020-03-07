@@ -15,7 +15,7 @@ namespace test
             var productBanner = new ProductBanner
             {
                 BackgroundColor = Color.FromArgb(51, 63, 85),
-                BackgroundImage = backgroundImage,
+                //BackgroundImage = backgroundImage,
                 ProductImage = washingBoots,
                 ProductImagePos = new Point(79, 54),
                 Title = "Washing Boots",
