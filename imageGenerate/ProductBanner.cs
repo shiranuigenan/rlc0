@@ -9,10 +9,12 @@ namespace imageGenerate
         public int Width { get; set; } = 300;
         public int Height { get; set; } = 250;
         public Color BackgroundColor { get; set; } = Color.FromArgb(255, 170, 85);
+
         public Bitmap BackgroundImage { get; set; }
-        public Point BackgroundImagePos { get; set; }
+        public Rectangle BackgroundImageRect { get; set; }
+
         public Bitmap ProductImage { get; set; }
-        public Point ProductImagePos { get; set; }
+        public Rectangle ProductImageRect { get; set; }
 
         public string Title { get; set; } = "Title";
         public Rectangle TitleRect { get; set; }
@@ -42,10 +44,10 @@ namespace imageGenerate
                 g.Clear(BackgroundColor);
 
                 if (BackgroundImage != null)
-                    g.DrawImage(BackgroundImage, BackgroundImagePos);
+                    g.DrawImage(BackgroundImage, BackgroundImageRect);
 
                 if (ProductImage != null)
-                    g.DrawImage(ProductImage, ProductImagePos);
+                    g.DrawImage(ProductImage, ProductImageRect);
 
                 using (var font = new Font(TitleFont, TitleFontSize))
                 {
