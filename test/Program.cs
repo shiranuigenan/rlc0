@@ -22,11 +22,16 @@ namespace test
                 TitleRect = new Rectangle(5, 5, 290, 75),
                 TitleVerticalAlignment = StringAlignment.Center,
                 TitleHorizontalAlignment = StringAlignment.Far,
+                TitleColor = Color.Red,
+                TitleFont = "Arial",
+                TitleFontSize = 24.0f,
                 Price = "123.45 TL",
                 PriceRect = new Rectangle(5, 170, 290, 75),
                 PriceHorizontalAlignment = StringAlignment.Near,
-                PriceVerticalAlignment = StringAlignment.Center
-
+                PriceVerticalAlignment = StringAlignment.Center,
+                PriceColor = Color.Blue,
+                PriceFont = "Courier New",
+                PriceFontSize = 12.0f,
             };
             productBanner.SimpleRender();
             productBanner.SavePng("product-banner.png");

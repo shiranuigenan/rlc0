@@ -13,14 +13,23 @@ namespace imageGenerate
         public Point BackgroundImagePos { get; set; }
         public Bitmap ProductImage { get; set; }
         public Point ProductImagePos { get; set; }
+
         public string Title { get; set; } = "Title";
         public Rectangle TitleRect { get; set; }
         public StringAlignment TitleVerticalAlignment { get; set; } = StringAlignment.Center;
         public StringAlignment TitleHorizontalAlignment { get; set; } = StringAlignment.Center;
+        public Color TitleColor { get; set; } = Color.White;
+        public string TitleFont { get; set; } = "Times New Roman";
+        public float TitleFontSize { get; set; } = 16.0f;
+
         public string Price { get; set; } = "Price";
         public Rectangle PriceRect { get; set; }
         public StringAlignment PriceVerticalAlignment { get; set; } = StringAlignment.Center;
         public StringAlignment PriceHorizontalAlignment { get; set; } = StringAlignment.Center;
+        public Color PriceColor { get; set; } = Color.White;
+        public string PriceFont { get; set; } = "Times New Roman";
+        public float PriceFontSize { get; set; } = 16.0f;
+
         public Bitmap LastRendered { get; set; }
 
         public void SimpleRender()
@@ -38,7 +47,7 @@ namespace imageGenerate
                 if (ProductImage != null)
                     g.DrawImage(ProductImage, ProductImagePos);
 
-                using (var font = new Font("Times New Roman", 16))
+                using (var font = new Font(TitleFont, TitleFontSize))
                 {
                     using (var stringFormat = new StringFormat())
                     {
@@ -46,15 +55,22 @@ namespace imageGenerate
                         stringFormat.Alignment = TitleHorizontalAlignment;
 
                         // g.DrawRectangle(new Pen(Color.Red, 1), TitleRect);
-                        g.DrawString(Title, font, Brushes.White, TitleRect, stringFormat);
+
+                        using (var brush = new SolidBrush(TitleColor))
+                            g.DrawString(Title, font, brush, TitleRect, stringFormat);
                     }
+                }
+
+                using (var font = new Font(PriceFont, PriceFontSize))
+                {
                     using (var stringFormat = new StringFormat())
                     {
                         stringFormat.LineAlignment = PriceVerticalAlignment;
                         stringFormat.Alignment = PriceHorizontalAlignment;
 
                         // g.DrawRectangle(new Pen(Color.Red, 1), PriceRect);
-                        g.DrawString(Price, font, Brushes.White, PriceRect, stringFormat);
+                        using (var brush = new SolidBrush(PriceColor))
+                            g.DrawString(Price, font, brush, PriceRect, stringFormat);
                     }
                 }
             }
