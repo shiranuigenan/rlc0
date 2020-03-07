@@ -18,6 +18,7 @@ namespace test
                 //BackgroundImage = backgroundImage,
                 ProductImage = washingBoots,
                 ProductImageRect = new Rectangle(79, 54, 142, 142),
+
                 Title = "Washing Boots",
                 TitleRect = new Rectangle(5, 5, 290, 75),
                 TitleVerticalAlignment = StringAlignment.Center,
@@ -25,6 +26,7 @@ namespace test
                 TitleColor = Color.Red,
                 TitleFont = "Arial",
                 TitleFontSize = 24.0f,
+
                 Price = "123.45 TL",
                 PriceRect = new Rectangle(5, 170, 290, 75),
                 PriceHorizontalAlignment = StringAlignment.Near,
@@ -32,6 +34,16 @@ namespace test
                 PriceColor = Color.Blue,
                 PriceFont = "Courier New",
                 PriceFontSize = 12.0f,
+
+                OldPriceEnable = true,
+                OldPrice = "234.56 TL",
+                OldPriceRect = new Rectangle(5, 85, 290, 75),
+                OldPriceHorizontalAlignment = StringAlignment.Far,
+                OldPriceVerticalAlignment = StringAlignment.Near,
+                OldPriceColor = Color.Green,
+                OldPriceFont = "Tohoma",
+                OldPriceFontSize = 18.0f,
+
             };
             productBanner.SimpleRender();
             productBanner.SavePng("product-banner.png");

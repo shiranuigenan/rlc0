@@ -32,6 +32,15 @@ namespace imageGenerate
         public string PriceFont { get; set; } = "Times New Roman";
         public float PriceFontSize { get; set; } = 16.0f;
 
+        public bool OldPriceEnable { get; set; } = false;
+        public string OldPrice { get; set; } = "Price";
+        public Rectangle OldPriceRect { get; set; }
+        public StringAlignment OldPriceVerticalAlignment { get; set; } = StringAlignment.Center;
+        public StringAlignment OldPriceHorizontalAlignment { get; set; } = StringAlignment.Center;
+        public Color OldPriceColor { get; set; } = Color.White;
+        public string OldPriceFont { get; set; } = "Times New Roman";
+        public float OldPriceFontSize { get; set; } = 16.0f;
+
         public Bitmap LastRendered { get; set; }
 
         public void SimpleRender()
@@ -73,6 +82,23 @@ namespace imageGenerate
                         // g.DrawRectangle(new Pen(Color.Red, 1), PriceRect);
                         using (var brush = new SolidBrush(PriceColor))
                             g.DrawString(Price, font, brush, PriceRect, stringFormat);
+                    }
+                }
+
+                if (OldPriceEnable)
+                {
+                    using (var font = new Font(OldPriceFont, OldPriceFontSize, FontStyle.Strikeout))
+                    {
+
+                        using (var stringFormat = new StringFormat())
+                        {
+                            stringFormat.LineAlignment = OldPriceVerticalAlignment;
+                            stringFormat.Alignment = OldPriceHorizontalAlignment;
+
+                            // g.DrawRectangle(new Pen(Color.Red, 1), OldPriceRect);
+                            using (var brush = new SolidBrush(OldPriceColor))
+                                g.DrawString(Price, font, brush, OldPriceRect, stringFormat);
+                        }
                     }
                 }
             }
